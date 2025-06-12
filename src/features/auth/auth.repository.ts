@@ -12,7 +12,7 @@ export class AuthRepository {
     try {
       return await this.prisma.user.create({ data });
     } catch (error) {
-      console.log("Tye of error " + typeof error);
+      console.log("Type of error " + typeof error);
 
       if (error instanceof PrismaClientKnownRequestError && error.code === "P2002") {
         throw new DatabaseException(`Record already exist`, HttpStatus.CONFLICT);
